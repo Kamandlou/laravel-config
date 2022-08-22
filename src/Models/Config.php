@@ -16,6 +16,22 @@ class Config extends Model
 
     public static function firstConfig(string $key): string
     {
-        return self::where('key', $key)->first('value')->value;
+        return self::where('key', $key)->first('value')->value ?? '';
+    }
+
+    public static function allConfig(): array
+    {
+        $results = self::get(['key', 'value'])->groupBy('key')->toArray();
+        $values = [];
+        foreach ($results as $key => $configs) {
+            if (count($configs) > 1) {
+                foreach ($configs as $config) {
+                    $values[$key][] = $config['value'];
+                }
+            } else {
+                $values[$key] = $configs[0]['value'];
+            }
+        }
+        return $values;
     }
 }
