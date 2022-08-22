@@ -27,7 +27,7 @@ class LaravelConfigServiceProvider extends ServiceProvider
         ], 'laravel-config-configs');
 
         $this->publishes([
-            __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'database' . DIRECTORY_SEPARATOR . 'migrations' . DIRECTORY_SEPARATOR . '2022_08_22_151627_create_configs_table.php' => database_path('2022_08_22_151627_create_configs_table.php')
+            __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'database' . DIRECTORY_SEPARATOR . 'migrations' . DIRECTORY_SEPARATOR . '2022_08_22_151627_create_configs_table.php' => database_path('migrations/2022_08_22_151627_create_configs_table.php')
         ], 'laravel-config-migrations');
     }
 }
