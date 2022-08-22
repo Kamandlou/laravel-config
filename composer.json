@@ -1,0 +1,40 @@
+{
+    "name": "kamandlou/laravel-config",
+    "description": "A package for store your app config",
+    "keywords": [
+        "config",
+        "laravel"
+    ],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/kamandlou/laravel-config/issues",
+        "source": "https://github.com/kamandlou/laravel-config"
+    },
+    "authors": [
+        {
+            "name": "Kamandlou",
+            "email": "ahkamandlou@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Kamandlou\\LaravelConfig\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^9.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kamandlou\\LaravelConfig\\LaravelConfigServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
