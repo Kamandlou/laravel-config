@@ -10,3 +10,6 @@ A package for store your app config in database
 2. Publish package migration using Artisan command:
 
    `php artisan vendor:publish --tag=laravel-config-migrations`
+3. Run
+
+   `php artisan migrate`
