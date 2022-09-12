@@ -19,9 +19,15 @@ class Config extends Model
         return self::where('key', $key)->first('value')->value ?? '';
     }
 
-    public static function allConfig(): array
+    public static function allConfig(string ...$columns): array
     {
-        $results = self::get(['key', 'value'])->groupBy('key')->toArray();
+        $query = self::query();
+        foreach ($columns as $column){
+            $query = $query->orWhere(function ($q) use ($column) {
+                return $q->where('key', $column);
+            });
+        }
+        $results = $query->get(['key', 'value'])->groupBy('key')->toArray();
         $values = [];
         foreach ($results as $key => $configs) {
             if (count($configs) > 1) {
